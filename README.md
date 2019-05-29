@@ -1,4 +1,4 @@
-# promo
+# My personal website
 
 ## Project setup
 ```
