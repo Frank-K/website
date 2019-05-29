@@ -1,9 +1,15 @@
 <template>
-  <div class="landing">
-      <img src="../assets/avatar2.png">
+  <div class="landing" v-observe-visibility="{callback: visibilityChanged, once: true,}">
+      <transition name="fade">
+        <img src="../assets/avatar2.png" v-if="show" style="animation-duration: 1.5s">
+      </transition>
       <div class="text">
-        <h1 class="title">{{ this.name }}</h1>
-        <h4 class="subtitle">{{ this.intro }}</h4>
+        <transition name="fade">
+          <h1 class="title" v-if="show" style="animation-duration: 1.5s">{{ this.name }}</h1>
+        </transition>
+        <transition name="fade">
+          <h4 class="subtitle" v-if="show" style="animation-duration: 1.5s">{{ this.intro }}</h4>
+        </transition>
       </div>
   </div>
 </template>
@@ -15,6 +21,16 @@ export default {
   name: 'Landing',
   computed: {
     ...mapGetters(['name', 'intro']),
+  },
+  data() {
+    return {
+      show: false,
+    };
+  },
+  methods: {
+    visibilityChanged(isVisible) {
+      this.show = isVisible;
+    },
   },
 };
 </script>
