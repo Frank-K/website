@@ -44,7 +44,7 @@ export default {
   data() {
     return {
       options: {
-        anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage'],
+        anchors: ['Landing', 'Introduction', 'Experience', 'Projects', 'Contact', 'Footer'],
         navigation: true,
         sectionsColor: ['#77A6F7', '#F77676', '#F7B476', '#76D0F7', '#F776D5', '#F776D5'],
       },
